@@ -1,6 +1,7 @@
 package lotto;
 
 import lotto.controller.LottoPurchaseController;
+import lotto.controller.ResultConroller;
 import lotto.controller.WinningLottoInputController;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -17,6 +18,7 @@ public class WebUILottoApplication {
 
         get("/input", LottoPurchaseController.serveInputPage);
         get("/winninglotto", WinningLottoInputController.serveWinningLottoInputPage);
+        get("/result", ResultConroller.serveResultPage);
 
         post("/budget", LottoPurchaseController.inputBudget);
         post("/manualLotto", LottoPurchaseController.inputManualLotto);
@@ -24,6 +26,7 @@ public class WebUILottoApplication {
         post("/showLotto", LottoPurchaseController.showLotto);
         post("/winningLotto", WinningLottoInputController.inputWinningLotto);
         post("/registerLotto", LottoPurchaseController.registerLotto);
+        post("/requestResult", ResultConroller.responseResult);
     }
 
     public static String render(Map<String, Object> model, String templatePath) {
